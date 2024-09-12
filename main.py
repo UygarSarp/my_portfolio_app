@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas
 
 st.set_page_config("wide")
 
@@ -23,3 +24,21 @@ You're gonna scream, "Mama"
 So bring drama to the king Brahma (Then what?)
 Comin' at ya' with extreme mana (Ahoo, ahoo, ahoo)"""
     st.write(content)
+
+df = pandas.read_csv("data.csv", sep=";")
+col3, col, col4 = st.columns([1.5, 0.5, 1.5])
+
+with col3:
+    for i,row in df[:10].iterrows():
+        st.header(row["title"])
+        st.image(f"images/{row['image']}")
+        st.write(row["description"])
+        st.write(f"[Source Code]({row['url']})")
+
+with col4:
+    for i,row in df[10:].iterrows():
+        st.header(row["title"])
+        st.image(f"images/{row['image']}")
+        st.write(row["description"])
+        st.write(f"[Source Code]({row['url']})")
+
