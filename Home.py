@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas
 
-st.set_page_config("wide")
+st.set_page_config(layout="wide")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("images/stone.png")
+    st.image("images/stone.png",width=400)
 st.write("Below you can find some apps that I build in Python."
          " Feel free to contact me!")
 
@@ -23,7 +23,7 @@ Mean on ya like a dream when I'm rumblin'
 You're gonna scream, "Mama"
 So bring drama to the king Brahma (Then what?)
 Comin' at ya' with extreme mana (Ahoo, ahoo, ahoo)"""
-    st.write(content)
+    st.info(content)
 
 df = pandas.read_csv("data.csv", sep=";")
 col3, col, col4 = st.columns([1.5, 0.5, 1.5])
